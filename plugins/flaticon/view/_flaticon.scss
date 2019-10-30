@@ -1,0 +1,66 @@
+    /*
+    Flaticon icon font: Flaticon
+    Creation date: 20/09/2019 22:38
+    */
+
+    @font-face {
+  font-family: "Flaticon";
+  src: url("./Flaticon.eot");
+  src: url("./Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("./Flaticon.woff2") format("woff2"),
+       url("./Flaticon.woff") format("woff"),
+       url("./Flaticon.ttf") format("truetype"),
+       url("./Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("./Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+    .fi:before{
+        display: inline-block;
+  font-family: "Flaticon";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+    }
+
+    .flaticon-search:before { content: "\f100"; }
+.flaticon-cart:before { content: "\f101"; }
+.flaticon-woman:before { content: "\f102"; }
+.flaticon-male:before { content: "\f103"; }
+.flaticon-pay:before { content: "\f104"; }
+.flaticon-logistics-delivery-truck-in-movement:before { content: "\f105"; }
+.flaticon-dollar-coin-stack:before { content: "\f106"; }
+.flaticon-padlock:before { content: "\f107"; }
+.flaticon-arrow-point-to-right:before { content: "\f108"; }
+.flaticon-visa-pay-logo:before { content: "\f109"; }
+.flaticon-american-express-logo:before { content: "\f10a"; }
+.flaticon-bar-code:before { content: "\f10b"; }
+.flaticon-star-1:before { content: "\f10c"; }
+    
+    $font-Flaticon-search: "\f100";
+    $font-Flaticon-cart: "\f101";
+    $font-Flaticon-woman: "\f102";
+    $font-Flaticon-male: "\f103";
+    $font-Flaticon-pay: "\f104";
+    $font-Flaticon-logistics-delivery-truck-in-movement: "\f105";
+    $font-Flaticon-dollar-coin-stack: "\f106";
+    $font-Flaticon-padlock: "\f107";
+    $font-Flaticon-arrow-point-to-right: "\f108";
+    $font-Flaticon-visa-pay-logo: "\f109";
+    $font-Flaticon-american-express-logo: "\f10a";
+    $font-Flaticon-bar-code: "\f10b";
+    $font-Flaticon-star-1: "\f10c";
