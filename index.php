@@ -114,8 +114,6 @@
                         <img src="<?php echo $cat_thumb_url; ?>" alt="categoria" class="img-responsive">
                         <div class="contents text-center">
                           <h4><?php echo $category->name; ?></h4>
-                          <p>a partir de</p>
-                          <h3>R$39,99</h3>
                           <form id="form-price-filter" action="/loja" method="post">
                               <input type="hidden" name="cat-filter" value="<?php echo $category->name; ?>">
                               <input type="hidden" name="has-filter" value="true">
