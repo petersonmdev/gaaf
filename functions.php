@@ -106,3 +106,30 @@ function custom_override_checkout_fields( $fields )
     return $fields;
 }
 add_filter('woocommerce_checkout_fields','custom_override_checkout_fields');
+
+/*///////////////////////////////////////////////
+////////// REGISTRA OS MENUS DO SITE
+////////////////////////////*/
+register_nav_menus(array(
+    'primary' => __('Principal', 'gaaf'),
+    'footer-col1' => __('Categorias', 'gaaf'),
+    'footer-col2' => __('Empresa', 'gaaf'),
+    'footer-col3' => __('Minha Conta', 'gaaf'),    
+    'footer-col4' => __('Atendimento', 'gaaf')
+));
+
+function add_additional_class_on_li($classes, $item, $args) {
+    if($args->add_li_class) {
+        $classes[] = $args->add_li_class;
+    }
+    return $classes;
+}
+add_filter('nav_menu_css_class', 'add_additional_class_on_li', 1, 3);
+
+function add_additional_class_on_link($classes, $item, $args) {
+    if($args->add_link_class) {
+        $classes[] = $args->add_link_class;
+    }
+    return $classes;
+}
+add_filter('nav_menu_css_class', 'add_additional_class_on_link', 10, 4);

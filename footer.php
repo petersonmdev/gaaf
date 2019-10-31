@@ -45,58 +45,56 @@
           <div class="row">
             <div class="col-md-3 col-sm-6 col-xs-12">
               <h6 class="title-footer-top">Categorias</h6>
-              <ul class="menu-link">
-                <li>
-                  <a href="product.php">Mais vendidos</a>
-                </li>
-                <li>
-                  <a href="product.php">Produtos em destaque</a>
-                </li>
-                <li>
-                  <a href="product.php">Biquinis</a>
-                </li>
-                <li>
-                  <a href="product.php">Maiôs</a>
-                </li>
-                <li>
-                  <a href="product.php">Sungas</a>
-                </li>
-              </ul>
+              <?php 
+                wp_nav_menu( array(
+                  'theme_location'  => 'footer-col1',
+                  'depth'           => 2, // 1 = no dropdowns, 2 = with dropdowns.
+                  'container'       => '',
+                  'container_class' => '',
+                  'container_id'    => '',
+                  'menu_class'      => 'menu-link'
+                ) );
+              ?>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-12">
               <h6 class="title-footer-top">NOSSA EMPRESA</h6>
-              <ul class="menu-link">
-                <li>
-                  <a href="<?php echo get_site_url(); ?>/sobre-nos">Sobre nós</a>
-                </li>
-                <li>
-                  <a href="https://www2.correios.com.br/sistemas/rastreamento/default.cfm" target="_blank">Rastrear pedido</a>
-                </li>
-                <li>
-                  <a href="<?php echo get_site_url(); ?>/politica-de-entrega">Política de entrega</a>
-                </li>
-                <li>
-                  <a href="<?php echo get_site_url(); ?>/politicas-de-trocas-e-devolucoes">Política de trocas e devoluções</a>
-                </li>
-              </ul>
+              <?php 
+                wp_nav_menu( array(
+                  'theme_location'  => 'footer-col2',
+                  'depth'           => 2, // 1 = no dropdowns, 2 = with dropdowns.
+                  'container'       => '',
+                  'container_class' => '',
+                  'container_id'    => '',
+                  'menu_class'      => 'menu-link'
+                ) );
+              ?>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-12">
               <h6 class="title-footer-top">MINHA CONTA</h6>
-              <ul class="menu-link">
-                <li>
-                  <a href="<?php echo get_site_url(); ?>/minha-conta">Minha conta</a>
-                </li>
-                <li>
-                  <a href="<?php echo get_site_url(); ?>/minha-conta/orders">Meus pedidos</a>
-                </li>
-              </ul>
+              <?php 
+                wp_nav_menu( array(
+                  'theme_location'  => 'footer-col3',
+                  'depth'           => 2, // 1 = no dropdowns, 2 = with dropdowns.
+                  'container'       => '',
+                  'container_class' => '',
+                  'container_id'    => '',
+                  'menu_class'      => 'menu-link'
+                ) );
+              ?>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-12">
               <h6 class="title-footer-top">ATENDIMENTO</h6>
+              <?php 
+                wp_nav_menu( array(
+                  'theme_location'  => 'footer-col4',
+                  'depth'           => 2, // 1 = no dropdowns, 2 = with dropdowns.
+                  'container'       => '',
+                  'container_class' => '',
+                  'container_id'    => '',
+                  'menu_class'      => 'menu-link'
+                ) );
+              ?>
               <ul class="menu-link">
-                <li>
-                  <a href="common.php">Atendimento ao cliente</a>
-                </li>
                 <hr>
                 <li>
                   <span>De segunda a Quinta, das 7h as 17h, sexta-feira, das 7h as 16h</span>

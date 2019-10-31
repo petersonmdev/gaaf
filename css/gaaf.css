@@ -177,6 +177,7 @@ nav.navbar {
 .navbar-gaaf .navbar .navbar-nav li a {
   color: #666!important;
   padding: 10px 8px;
+  display: block;
 }
 
 .navbar-gaaf .navbar .navbar-nav li.active a {

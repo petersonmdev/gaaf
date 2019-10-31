@@ -5,35 +5,19 @@
     ==================================-->
     <div class="hero-slider slider-gaaf">
         <!-- Slider Item -->
-        <div class="slider-item slide1" style="background-image:url(<?= img; ?>/slider/slider-bg-1.jpg)">
+        <div class="slider-item slide1" style="<?php if ( $isMobile ) { echo "background-image:url(". img ."/slider/banner-mobile1.jpg)"; } else { echo "background-image:url(". img ."/slider/banner1.jpg)"; } ?>">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <!-- Slide Content Start-->
-                        <div class="content style text-left content-text-slider">
-                            <h2 class="text-destaque">20%</h2>
-                            <p class="tag-text">De desconto</p>
-                            <span class="text-bg">Nas compras acima de 500 reais</span>
-                        </div>
-                        <!-- Slide Content End-->
                     </div>
                 </div>
             </div>
         </div>
         <!-- Slider Item -->
-        <div class="slider-item" style="background-image:url(<?= img; ?>/slider/slider-bg-2.jpg);">
+        <div class="slider-item" style="<?php if ( $isMobile ) { echo "background-image:url(". img ."/slider/banner-mobile2.jpg)"; } else { echo "background-image:url(". img ."/slider/banner2.jpg)"; } ?>">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <!-- Slide Content Start -->
-                        <div class="content style text-center content-text-slider">
-                            <h2 class="text-white text-bold mb-2">Coleção verão 2020</h2>
-                            <div class="content mb-4">
-                              <span class="text-bg">Conheça nossa nova coleção</span>
-                            </div>
-                            <a href="#" class="btn btn-main btn-white">Conhecer</a>
-                        </div>
-                        <!-- Slide Content End -->
                     </div>
                 </div>
             </div>
@@ -51,7 +35,7 @@
                             <i class="flaticon-pay"></i>
                             <div class="content-text-before-slide">
                               <span>Parcelamos em</span>
-                              <h4><strong>ATÉ 6X SEM JURUS</strong></h4>
+                              <h4><strong>ATÉ 3X SEM JURUS</strong></h4>
                             </div>
                         </div>
                         <div class="top-doctor item">
@@ -108,51 +92,42 @@
     <section class="section-category team-section section section-gaaf">
         <div class="container">
             <div class="row">
-              <div class="col-md-4 col-sm-6">
-                  <div class="team-member">
-                      <img src="<?= img; ?>/gallery/biquini.jpg" alt="doctor" class="img-responsive">
-                      <div class="contents text-center">
-                          <h4>Biquinis</h4>
+              <?php
+              $order = 'asc';
+              $hide_empty = true ;
+              $cat_args = array(
+                  'order'      => $order,
+                  'hide_empty' => $hide_empty
+              );
+ 
+              $product_categories = get_terms( 'product_cat', $cat_args);
+               
+              if( !empty($product_categories) ){
+                  $i = 0;
+                  foreach ($product_categories as $key => $category) { ?>
+                    <div class="<?php if ($i == 2) {echo 'col-md-4 d-none d-md-flex';} else { echo 'col-md-4 col-sm-6';} ?>">
+                      <div class="team-member">
+                        <?php 
+                        $cat_thumb_id = get_woocommerce_term_meta( $category->term_id, 'thumbnail_id', true);
+                        $cat_thumb_url = wp_get_attachment_url( $cat_thumb_id );
+                        $term_link = get_term_link( $category, 'category' ); ?>
+                        <img src="<?php echo $cat_thumb_url; ?>" alt="categoria" class="img-responsive">
+                        <div class="contents text-center">
+                          <h4><?php echo $category->name; ?></h4>
                           <p>a partir de</p>
                           <h3>R$39,99</h3>
                           <form id="form-price-filter" action="/loja" method="post">
-                              <input type="hidden" name="cat-filter" value="biquinis">
+                              <input type="hidden" name="cat-filter" value="<?php echo $category->name; ?>">
                               <input type="hidden" name="has-filter" value="true">
                               <button type="submit" class="btn btn-lg btn-gaaf-second">Ver todos</button>
                           </form>
+                        </div>
                       </div>
-                  </div>
-              </div>
-              <div class="col-md-4 col-sm-6">
-                  <div class="team-member">
-                      <img src="<?= img; ?>/gallery/plus-size.jpg" alt="doctor" class="img-responsive">
-                      <div class="contents text-center">
-                          <h4>Plus size</h4>
-                          <p>a partir de</p>
-                          <h3>R$39,99</h3>
-                          <form id="form-price-filter" action="/loja" method="post">
-                              <input type="hidden" name="cat-filter" value="plus-size">
-                              <input type="hidden" name="has-filter" value="true">
-                              <button type="submit" class="btn btn-lg btn-gaaf-second">Ver todos</button>
-                          </form>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-md-4 d-none d-md-flex">
-                  <div class="team-member">
-                      <img src="<?= img; ?>/gallery/maios.jpg" alt="doctor" class="img-responsive">
-                      <div class="contents text-center">
-                          <h4>Maiôs</h4>
-                          <p>a partir de</p>
-                          <h3>R$39,99</h3>
-                          <form id="form-price-filter" action="/loja" method="post">
-                              <input type="hidden" name="cat-filter" value="maios">
-                              <input type="hidden" name="has-filter" value="true">
-                              <button type="submit" class="btn btn-lg btn-gaaf-second">Ver todos</button>
-                          </form>
-                      </div>
-                  </div>
-              </div>
+                    </div>
+                    <?php
+                    if (++$i == 3) break;
+                  }
+              } ?>
             </div>
         </div>
     </section>

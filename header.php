@@ -98,9 +98,9 @@ $isMobile = (preg_match('/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberr
           </div>
 
           <div class="center-side col-md-5 col-sm-10">
-              <form action="/loja" method="post">
+              <form action="<?php echo home_url(); ?>" role="search" method="get" class="search">
                   <div class="input-group">
-                      <input class="form-control inpt-gaaf" type="text" name="busca" placeholder="Procure no site...">
+                      <input class="form-control inpt-gaaf" type="search" name="s" placeholder="Procure no site..." value="<?php echo get_search_query() ?>">
                       <input type="hidden" name="has-filter" value="true">
                       <div class="input-group-append">
                           <button class="btn btn-outline-secondary btn-gaaf" type="submit"><i class="flaticon-search"></i></button>
@@ -176,36 +176,18 @@ $isMobile = (preg_match('/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberr
             </ul>
           </div>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav nav-fill w-100">
-              <li class="nav-item active">
-                <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="product.php">Mais vendidos</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="product.php">Biquinis</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="product.php">Maiôs</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="product.php">Sungas</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="product.php">Rastreio</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Lançamentos
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="product-simple--.php">Biquini 001</a>
-                  <a class="dropdown-item" href="product-simple--.php">Biquini 002</a>
-                  <a class="dropdown-item" href="product-simple--.php">Biquini 003</a>
-                </div>
-              </li>
-            </ul>
+            <?php 
+                wp_nav_menu( array(
+                'theme_location'  => 'primary',
+                'depth'           => 2, // 1 = no dropdowns, 2 = with dropdowns.
+                'container'       => '',
+                'container_class' => '',
+                'container_id'    => '',
+                'menu_class'      => 'navbar-nav nav-fill w-100',
+                'add_li_class'    => 'nav-item'
+              ) );
+            ?>
+            
           </div>
         </nav>
       </div>
@@ -215,7 +197,7 @@ $isMobile = (preg_match('/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberr
       <div class="container">
         <div class=row>
           <div class="col-12">
-              <form action="/loja" method="post">
+              <form action="<?php echo get_site_url(); ?>/search.php" method="post">
                 <div class="input-group">
                     <input class="form-control inpt-gaaf" type="text" name="busca" placeholder="Procure no site...">
                     <input type="hidden" name="has-filter" value="true">
